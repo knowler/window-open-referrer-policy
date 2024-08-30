@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "serve": "deno run --allow-net --watch ./main.js"
+  },
+  "imports": {
+    "hono": "jsr:@hono/hono"
+  }
+}
