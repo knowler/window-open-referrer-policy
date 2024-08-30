@@ -30,14 +30,14 @@ originA.get("/", c => {
     <form>
       <label>Referrer Policy
         <select name="referrerPolicy">
-          ${option("no-referrer")}
-          ${option("no-referrer-when-downgrade")}
-          ${option("origin")}
-          ${option("origin-when-cross-origin")}
-          ${option("same-origin")}
-          ${option("strict-origin")}
-          ${option("strict-origin-when-cross-origin", null, true)}
-          ${option("unsafe-url")}
+          <option>no-referrer
+          <option>no-referrer-when-downgrade
+          <option>origin
+          <option>origin-when-cross-origin
+          <option>same-origin
+          <option>strict-origin
+          <option selected>strict-origin-when-cross-origin
+          <option>unsafe-url
         </select>
       </label>
       <button formaction="/downgrade">Downgrade</button>
@@ -143,7 +143,3 @@ originC.get("/", c => {
 });
 
 Deno.serve({ port: 4022 }, originC.fetch);
-
-function option(value, current, isDefault = false) {
-  return `<option${(!current && isDefault) || value === current ? " selected" : ""}>${value}`;
-}
